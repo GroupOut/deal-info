@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/GroupOut/gallery
+  - https://github.com/GroupOut/reviews
+  - https://github.com/GroupOut/descriptions
+  - https://github.com/GroupOut/GroupOutNolanProxy
 
 ## Table of Contents
 
