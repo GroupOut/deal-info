@@ -2,7 +2,8 @@ import React from 'react';
 
 const countStyle = {
   borderStyle: 'solid',
-  borderWidth: '1px'
+  borderWidth: '1px',
+  width: '400px'
 };
 
 export default class Main extends React.Component {
