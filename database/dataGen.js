@@ -216,7 +216,7 @@ let generateDealOfferLines = function(name, index) {
     newPrice = Math.ceil(Math.random() * originalPrice);
 
 
-    let rowString = `INSERT INTO deal_offers (offer_name,total_avail,claimed,deal_id,original_price,discounted_price) VALUES ("${offerName}",${totalAvail},${claimed},${index+1},${originalPrice},${newPrice});`
+    let rowString = `INSERT INTO deal_offers (offer_name,total_avail,claimed,deal_status_id,original_price,discounted_price) VALUES ("${offerName}",${totalAvail},${claimed},${index+1},${originalPrice},${newPrice});`
 
     console.log(rowString);
   };
