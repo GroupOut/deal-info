@@ -1,11 +1,24 @@
+var mysql = require('mysql');
+
+var dbConnect = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  database: 'nky_deal_info'
+})
+
+var queryDB = function(cbFunc) {
+  dbConnect.query('SELECT * FROM deal_status WHERE id = 1;', (err, res) => {
+    if(err) {
+      throw err;
+    } else {
+      cbFunc(res);
+      return res;
+    }
+  })
+}
 
 
-
-
-
-
-
-
+queryDB((thing)=>{console.log(thing);});
 
 // var mysql = require('mysql');
 

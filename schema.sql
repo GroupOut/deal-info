@@ -357,60 +357,11 @@ INSERT INTO deal_offers (offer_name,total_avail,claimed,deal_status_id,original_
 INSERT INTO deal_offers (offer_name,total_avail,claimed,deal_status_id,original_price,discounted_price) VALUES ("Tickets for Four",345,7,100,565,336);
 INSERT INTO deal_offers (offer_name,total_avail,claimed,deal_status_id,original_price,discounted_price) VALUES ("Tickets for Ten",9810,5765,100,2260,1818);
 
--- DROP DATABASE IF EXISTS chat;
--- CREATE DATABASE chat;
-
--- USE chat;
-
--- DROP TABLE IF EXISTS users;
--- CREATE TABLE users (
---   id INT  NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
---   user_name VARCHAR(255)
--- );
-
--- DROP TABLE IF EXISTS rooms;
--- CREATE TABLE rooms (
---   id INT  NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
---   room_name VARCHAR(255)
--- );
-
--- DROP TABLE IF EXISTS messages;
--- CREATE TABLE messages (
---   /* Describe your table here.*/
---   -- column FOREIGN KEY(table) REFERENCES table(column)
---   id INT  NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
---   user_id INT NOT NULL,
---   room_id INT NOT NULL,
---   msg_text VARCHAR(255),
---   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
---   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
---   FOREIGN KEY (user_id) REFERENCES users(id),
---   FOREIGN KEY (room_id) REFERENCES rooms(id)
--- );
-
--- /* Create other tables and define schemas for them here! */
-
--- INSERT INTO users (user_name) VALUES ('billy');
--- INSERT INTO users (user_name) VALUES ('bobby');
--- INSERT INTO users (user_name) VALUES ('benny');
--- INSERT INTO users (user_name) VALUES ('barty');
--- INSERT INTO users (user_name) VALUES ('buddy');
--- SELECT * FROM users;
+-- SELECT * FROM deal_status WHERE id = 1;
+-- SELECT * FROM deal_info WHERE deal_status_id = 1;
 
 
--- INSERT INTO rooms (room_name) VALUES ('billys room');
--- INSERT INTO rooms (room_name) VALUES ('bobbys room');
--- INSERT INTO rooms (room_name) VALUES ('bennys room');
--- INSERT INTO rooms (room_name) VALUES ('bartys room');
--- INSERT INTO rooms (room_name) VALUES ('buddys room');
--- SELECT * FROM rooms;
 
--- INSERT INTO messages (user_id, room_id, msg_text) VALUES (1, 1, 'yo wattup Im billy');
--- INSERT INTO messages (user_id, room_id, msg_text) VALUES (2, 2, 'yo wattup Im bobby');
--- INSERT INTO messages (user_id, room_id, msg_text) VALUES (3, 3, 'yo wattup Im benny');
--- INSERT INTO messages (user_id, room_id, msg_text) VALUES (4, 4, 'yo wattup Im barty');
--- INSERT INTO messages (user_id, room_id, msg_text) VALUES (5, 5, 'yo wattup Im buddy');
--- SELECT * FROM messages;
 -- /*  Execute this file from the command line by typing:
 --  *    mysql -u root < schema.sql
 --  *  to create the database and the tables.*/

@@ -1,5 +1,9 @@
 import React from 'react';
 
+import Spotlight from './spotlight_components/Spotlight.jsx';
+import Offerlist from './offerlist_components/Offerlist.jsx';
+import Reserve from './reserve_components/Reserve.jsx';
+import ShareLinks from './share_components/ShareLinks.jsx';
 
 const countStyle = {
   borderStyle: 'solid',
@@ -54,7 +58,10 @@ export default class Main extends React.Component {
   render() {
     return (
       <div style={countStyle}>
-      HELLO WORLD
+        <Spotlight/>
+        <Offerlist offers={[1,2,3]}/>
+        <Reserve/>
+        <ShareLinks/>
         Time left: {this.state.time.m}m {this.state.time.s}s
       </div>
     );
