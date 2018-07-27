@@ -12,8 +12,8 @@ let generateDealStatusLine = function(name){
     rating = Math.floor(Math.random()*501)/100;
     rnJesus = Math.floor(Math.random()*10);
   }
-  let reviewCount = Math.floor(Math.random()*99999);
-  if(reviewCount <= 89999) {
+  let reviewCount = Math.floor(Math.random()*9999);
+  if(reviewCount <= 8999) {
     reviewCount = Math.floor(reviewCount / 75);
   }
 
@@ -29,7 +29,7 @@ let collectedNames = ['River Sightseeing or Sunset Tour for One or Two People fr
 // });
 
 let generateDealOfferLines = function(name, index) {
-  console.log(name)
+  // console.log(name)
 
   randomBonus = ['Annual Pass','Month Pass', 'Weeklong Pass', 'Family Pack', 'Anniversary Deal']
 
@@ -103,15 +103,16 @@ let generateDealOfferLines = function(name, index) {
         if(Math.ceil(Math.random()*3) === 1) {
           randomRoll++;
         } else if (Math.ceil(Math.random()*2) === 1) {
-          randomRoll = ([4,8,12])[Math.floor(Math.random() * 3)];
+          randomRoll = ([1,4,8,12])[Math.floor(Math.random() * 4)];
         }
       }
       rolledOpts.push(randomRoll);
     }
 
     rolledOpts.sort(function(a,b){return a-b});
-
-    console.log(rolledOpts);
+    if(rolledOpts[0] !== 1) {
+      rolledOpts[0] = 1;
+    }
 
     for(let j = 0; j < optRoll; j++){
       if (offerDict[rolledOpts[j]] !== void(0)) {
@@ -121,8 +122,104 @@ let generateDealOfferLines = function(name, index) {
     }
 
   }
-  console.log(filteredOpts);
 
+  let offerName = '';
+  let totalAvail = ''; //randomInt
+  let claimed = ''; //randomInt < avail
+  let originalPrice = ''; //randomDbl
+  let newPrice =''; //x% of originalPrice -> dbl
+
+
+
+  for (let k = 0; k < filteredOpts.length; k++) {
+    offerName = filteredOpts[k];
+    if (name.indexOf(' for ') !== -1) {
+      offerName += ' x ' + name.split(' for ')[0];
+    } else if (name.indexOf(' on ') !== -1) {
+      offerName += ' x ' + name.split(' on ')[0];
+    } else if (name.indexOf('Class') !== -1) {
+      if (filteredOpts[k] === 'One') {
+        offerName += ' Class';
+      } else {
+        offerName += ' Classes';
+      }
+    } else if (name.indexOf('Treatment') !== -1) {
+      if(filteredOpts[k] === 'One') {
+        offerName += ' Pass';
+      } else {
+        offerName += ' Passes';
+      }
+
+    } else if (name.indexOf('Experience') !== -1) {
+      if(filteredOpts[k] === 'One') {
+        offerName += ' Pass';
+      } else {
+        offerName += ' Passes';
+      }
+
+    } else if (name.indexOf('Course') !== -1) {
+      if(filteredOpts[k] === 'One') {
+        offerName += ' Class';
+      } else {
+        offerName += ' Classes';
+      }
+
+    } else if (name.indexOf('Passes') !== -1) {
+      if(filteredOpts[k] === 'One') {
+        offerName += ' Pass';
+      } else {
+        offerName += ' Passes';
+      }
+
+    } else if (name.indexOf('Session') !== -1) {
+      if(filteredOpts[k] === 'One') {
+        offerName += ' Ticket';
+      } else {
+        offerName += ' Tickets';
+      }
+
+    } else if (name.indexOf('Tour') !== -1) {
+      if(filteredOpts[k] === 'One') {
+        offerName += ' Ticket';
+      } else {
+        offerName += ' Tickets';
+      }
+
+    } else {
+      if(filteredOpts[k] === 'One') {
+        offerName = 'Ticket for ' +filteredOpts[k] ;
+      } else if (randomBonus.indexOf(filteredOpts[k]) === -1) {
+        offerName = 'Tickets for ' + filteredOpts[k];
+      } else {
+
+      }
+    }
+
+    totalAvail = Math.floor(Math.random() * 999);
+    if(totalAvail > 900) {
+      totalAvail *= 10;
+    } else {
+      totalAvail = Math.ceil(totalAvail/2);
+    }
+
+    claimed = Math.ceil(Math.random() * totalAvail);
+
+    if(typeof originalPrice === 'string'){
+      originalPrice = (Math.ceil(Math.random()*9000));
+      if(originalPrice < 9000) {
+        originalPrice = 20 + Math.ceil(originalPrice/20);
+      }
+    } else {
+      originalPrice = Math.ceil(Math.random() * 5) * originalPrice;
+    }
+
+    newPrice = Math.ceil(Math.random() * originalPrice);
+
+
+    let rowString = `INSERT INTO deal_offers (offer_name,total_avail,claimed,deal_id,original_price,discounted_price) VALUES ("${offerName}",${totalAvail},${claimed},${index+1},${originalPrice},${newPrice});`
+
+    console.log(rowString);
+  };
 
   // if(name.indexOf(' for ') !== -1){
   //   let opts = name.split(' for ')[1].split(' at ')[0].split(', ');
@@ -162,14 +259,6 @@ let generateDealOfferLines = function(name, index) {
   //   // console.log(index);
   // }
 
-  let offerName = '';
-  let totalAvail = ''; //randomInt
-  let claimed = ''; //randomInt < avail
-  let originalPrice = ''; //randomDbl
-  let newPrice =''; //x% of originalPrice -> dbl
-
-
-  let rowString = `INSERT INTO deal_offers (offer_name,total_avail,claimed,deal_id,original_price,discounted_price) VALUES (${offerName},${totalAvail},${claimed},${index},${originalPrice},${newPrice});`
 }
 
 
