@@ -6,7 +6,8 @@ import ItemMid from './item_mid/ItemMid.jsx';
 
 let offerStyle = {
   'display': 'flex',
-  'justifyContent':'space-between'
+  'justifyContent':'space-between',
+  'borderBottom': '1px solid #efefef'
 }
 
 export default class OfferItem extends React.Component {

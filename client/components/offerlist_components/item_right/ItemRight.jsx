@@ -1,7 +1,9 @@
 import React from 'react';
+import ItemPrices from './ItemPrices.jsx';
+import ItemSavings from './ItemSavings.jsx';
 
 let rightStyle = {
-  width: '12%'
+  alignSelf: 'flex-end'
 }
 
 export default class ItemRight extends React.Component {
@@ -16,7 +18,8 @@ export default class ItemRight extends React.Component {
   render() {
     return (
       <div style={rightStyle}>
-        RIGHT
+        <ItemPrices/>
+        <ItemSavings/>
       </div>
     );
   }

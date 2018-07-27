@@ -3,7 +3,7 @@ import ItemNameComp from './ItemNameComp.jsx';
 import ItemSoldStatus from './ItemSoldStatus.jsx';
 
 let midStyle = {
-  width:'75%',
+  width:'60%',
   display:'flex',
   flexDirection:'column'
 }
