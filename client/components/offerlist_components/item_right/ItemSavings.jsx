@@ -5,15 +5,15 @@ let savingsStyle = {
 }
 
 export default class ItemSavings extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
   }
 
   render() {
     return (
       <div style={savingsStyle}>
-        %SAVINGS!
+        {Math.round((1-(this.props.discPrice/this.props.origPrice))*100)}%Off!
       </div>
     )
   }

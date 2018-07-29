@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default class BuyButton extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -12,7 +12,7 @@ export default class BuyButton extends React.Component {
 
   render() {
     return (
-      <div>
+      <div onClick={this.props.onClick}>
         Herro I am BuyButton
       </div>
     );

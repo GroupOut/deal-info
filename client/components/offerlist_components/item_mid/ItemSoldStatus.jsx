@@ -5,8 +5,8 @@ let soldStyle = {
 }
 
 export default class ItemSoldStatus extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -14,9 +14,17 @@ export default class ItemSoldStatus extends React.Component {
   }
 
   render() {
+    let reservRound;
+
+    if(this.props.sold > 10) {
+      reservRound = (Math.floor(this.props.sold/10)*10) + '+'
+    } else {
+      reservRound = 'a few';
+    }
+
     return (
       <div style={soldStyle}>
-        SOLD
+        {reservRound} already reserved
       </div>
     );
   }

@@ -5,8 +5,8 @@ let nameStyle = {
 }
 
 export default class ItemNameComp extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -16,7 +16,7 @@ export default class ItemNameComp extends React.Component {
   render() {
     return (
       <div style={nameStyle}>
-        NAME
+        {this.props.name}
       </div>
     );
   }

@@ -7,8 +7,8 @@ let spotboxStyle = {
 };
 
 export default class SpotBox extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {

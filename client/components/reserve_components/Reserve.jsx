@@ -3,8 +3,8 @@ import BuyButton from './BuyButton.jsx';
 import GiftButton from './GiftButton.jsx';
 
 export default class Reserve extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -15,8 +15,8 @@ export default class Reserve extends React.Component {
   render() {
     return (
       <div>
-        <BuyButton/>
-        <GiftButton/>
+        <BuyButton onClick={this.props.reservationCb.bind(null, 'self')}/>
+        <GiftButton onClick={this.props.reservationCb.bind(null, 'gift')}/>
       </div>
     );
   }

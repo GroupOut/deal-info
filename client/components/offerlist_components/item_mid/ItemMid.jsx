@@ -9,8 +9,8 @@ let midStyle = {
 }
 
 export default class ItemMid extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -20,8 +20,8 @@ export default class ItemMid extends React.Component {
   render() {
     return (
       <div style={midStyle}>
-        <ItemNameComp/>
-        <ItemSoldStatus/>
+        <ItemNameComp name={this.props.name}/>
+        <ItemSoldStatus sold={this.props.claimed}/>
       </div>
     );
   }

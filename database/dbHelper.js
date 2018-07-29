@@ -7,14 +7,14 @@ var dbConnect = mysql.createConnection({
 })
 
 var queryDB = function(cbFunc) {
-  dbConnect.query('SELECT * FROM deal_status WHERE id = 1;', (err, res) => {
-    if(err) {
+  dbConnect.query('SELECT * FROM deal_offers WHERE deal_status_id = 1;', (err, res) => {
+    if (err) {
       throw err;
     } else {
       cbFunc(res);
       return res;
     }
-  })
+  });
 }
 
 

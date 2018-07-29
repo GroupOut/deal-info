@@ -1,5 +1,8 @@
 import React from 'react';
-import SpotBox from './SpotBox.jsx';
+import SpotHighlight from './spotbox_types/SpotHighlight.jsx';
+import SpotReviews from './spotbox_types/SpotReviews.jsx';
+import SpotTimer from './spotbox_types/SpotTimer.jsx';
+
 
 let spotStyle = {
   'display': 'flex',
@@ -7,8 +10,8 @@ let spotStyle = {
 };
 
 export default class Spotlight extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -19,9 +22,9 @@ export default class Spotlight extends React.Component {
   render() {
     return (
       <div style={spotStyle}>
-      <SpotBox/>
-      <SpotBox/>
-      <SpotBox/>
+        <SpotTimer expiration={this.props.deal.expiration}/>
+        <SpotHighlight deal={this.props.deal} offers={this.props.offers}/>
+        <SpotReviews deal={this.props.deal}/>
       </div>
     );
   }

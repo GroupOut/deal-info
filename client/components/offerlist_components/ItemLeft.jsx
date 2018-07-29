@@ -5,8 +5,8 @@ let leftStyle = {
 }
 
 export default class ItemLeft extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -14,9 +14,15 @@ export default class ItemLeft extends React.Component {
   }
 
   render() {
+    let leftPlaceholder = '';
+    if(this.props.offerId === this.props.selected){
+      leftPlaceholder = 'Me!'
+    } else {
+      leftPlaceholder = 'not'
+    }
     return (
       <div style={leftStyle}>
-        Not right
+        {leftPlaceholder}
       </div>
     );
   }

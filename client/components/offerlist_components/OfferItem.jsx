@@ -11,8 +11,9 @@ let offerStyle = {
 }
 
 export default class OfferItem extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(this.props.offer)
   }
 
   componentDidMount() {
@@ -21,10 +22,10 @@ export default class OfferItem extends React.Component {
 
   render() {
     return (
-      <div style={offerStyle}>
-        <ItemLeft/>
-        <ItemMid/>
-        <ItemRight/>
+      <div style={offerStyle} onClick={this.props.onClick}>
+        <ItemLeft selected={this.props.selected} offerId={this.props.offer.id}/>
+        <ItemMid name={this.props.offer.offerName} claimed={this.props.offer.claimed}/>
+        <ItemRight origPrice={this.props.offer.originalPrice} discPrice={this.props.offer.discountedPrice}/>
       </div>
     );
   }

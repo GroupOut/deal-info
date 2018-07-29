@@ -6,8 +6,8 @@ let offerStyle = {
 }
 
 export default class ShareLinks extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {

@@ -7,8 +7,8 @@ let rightStyle = {
 }
 
 export default class ItemRight extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -18,8 +18,8 @@ export default class ItemRight extends React.Component {
   render() {
     return (
       <div style={rightStyle}>
-        <ItemPrices/>
-        <ItemSavings/>
+        <ItemPrices origPrice={this.props.origPrice} discPrice={this.props.discPrice}/>
+        <ItemSavings origPrice={this.props.origPrice} discPrice={this.props.discPrice}/>
       </div>
     );
   }
