@@ -1,7 +1,14 @@
 import React from 'react';
 
 let leftStyle = {
-  width:'6%'
+  width:'6%',
+  marginTop:'auto',
+  marginBottom:'auto',
+  padding:'2px'
+}
+
+let checkStyle = {
+  color: '#53a318'
 }
 
 export default class ItemLeft extends React.Component {
@@ -16,9 +23,9 @@ export default class ItemLeft extends React.Component {
   render() {
     let leftPlaceholder = '';
     if(this.props.offerId === this.props.selected){
-      leftPlaceholder = 'Me!'
+      leftPlaceholder = <i className="fas fa-check-circle" style={checkStyle}></i>
     } else {
-      leftPlaceholder = 'not'
+      leftPlaceholder = <i className="far fa-circle"></i>;
     }
     return (
       <div style={leftStyle}>

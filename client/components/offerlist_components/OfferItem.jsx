@@ -13,7 +13,6 @@ let offerStyle = {
 export default class OfferItem extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.offer)
   }
 
   componentDidMount() {

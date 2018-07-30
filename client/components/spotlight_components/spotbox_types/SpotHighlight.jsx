@@ -2,14 +2,16 @@ import React from 'react';
 
 let highlightStyle = {
   width: '31%',
+  height: '100%',
   borderStyle: 'solid',
   borderWidth: '1px',
+  margin:'auto'
 };
 
 export default class SpotHighlight extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    // console.log(this.props);
     let leastRem = 100;
     let mostPercentSaved = 0;
     let largestSavingsValue = 0;
@@ -33,13 +35,13 @@ export default class SpotHighlight extends React.Component {
     // console.log(leastRem, mostPercentSaved, largestSavingsValue)
 
     if(largestSavingsValue > 100){
-      this.state = {text : `$${largestSavingsValue} - Big Savings!`}
+      this.state = {text : `$${largestSavingsValue} - Big Savings!`, icon: <i className="fas fa-money-bill-wave"></i>}
     } else if (mostPercentSaved > 80) {
-      this.state = {text : `%${mostPercentSaved} - Huge Discount`}
+      this.state = {text : ` %${mostPercentSaved} - Huge Discount`, icon: <i className="fas fa-piggy-bank"></i>}
     } else if (leastRem < 25) {
-      this.state = {text : 'Hot Item!'}
+      this.state = {text : 'Hot Item!', icon: <i className="fas fa-burn"></i>}
     } else {
-      this.state = {text : `${this.props.deal.views} views`}
+      this.state = {text : `${this.props.deal.views} views`, icon: <i className="far fa-eye"></i>}
     }
 
   }
@@ -50,8 +52,15 @@ export default class SpotHighlight extends React.Component {
 
 
   render() {
+    let extraBr = <span/>
+    if (this.state.icon) {
+      extraBr = <br/>;
+    }
+
     return (
       <div style={highlightStyle}>
+      {this.state.icon}
+      {extraBr}
       {this.state.text}
       </div>
     );
