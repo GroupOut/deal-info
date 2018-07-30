@@ -3,9 +3,11 @@ import React from 'react';
 let highlightStyle = {
   width: '31%',
   height: '100%',
-  borderStyle: 'solid',
+  borderStyle: 'solid #efefef',
   borderWidth: '1px',
-  margin:'auto'
+  margin:'auto',
+  textAlign:'center',
+  padding: '4px'
 };
 
 export default class SpotHighlight extends React.Component {

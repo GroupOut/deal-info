@@ -1,7 +1,7 @@
 import React from 'react';
 
 let savingsStyle = {
-  align:'right'
+  textAlign: 'right'
 }
 
 export default class ItemSavings extends React.Component {

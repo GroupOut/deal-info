@@ -3,9 +3,12 @@ import React from 'react';
 let reviewsStyle = {
   width: '31%',
   height: '100%',
-  borderStyle: 'solid',
+  borderStyle: 'solid #efefef',
   borderWidth: '1px',
-  margin:'0 1% 0 0'
+  margin:'0 1% 0 0',
+  textAlign: 'center',
+  padding: '4px'
+
 };
 
 let goldStyle = {color:'#f1eb47'}

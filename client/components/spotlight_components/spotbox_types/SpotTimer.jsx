@@ -3,9 +3,12 @@ import React from 'react';
 let timerStyle = {
   width: '31%',
   height: '100%',
-  borderStyle: 'solid',
+  borderStyle: 'solid #efefef',
   borderWidth: '1px',
-  margin: '0 0 0 1%'
+  margin: '0 0 0 1%',
+  textAlign: 'center',
+  padding: '4px'
+
 };
 
 export default class SpotTimer extends React.Component {
@@ -82,10 +85,17 @@ export default class SpotTimer extends React.Component {
 
 
   render() {
+    let timerText;
+    if(this.state.time.d > 14) {
+      timerText = ' Limited Time Remaining'
+    } else {
+      timerText = `Time left: ${this.state.time.d}d ${this.state.time.h}h ${this.state.time.m}m ${this.state.time.s}s`
+    }
+
     return (
       <div style={timerStyle}>
       <i className="fas fa-stopwatch"></i>
-        Time left: {this.state.time.d}d {this.state.time.h}h {this.state.time.m}m {this.state.time.s}s
+        {timerText}
       </div>
     );
   }
