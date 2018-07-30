@@ -11,6 +11,10 @@ export default class Offerlist extends React.Component {
         };
         this.props.selectionCb(this.props.offers[i].id);
         i = this.props.offers.length;
+      } else if (i === this.props.offers.length - 1) {
+        this.state = {
+          selected:'soldOut'
+        };
       }
     }
 

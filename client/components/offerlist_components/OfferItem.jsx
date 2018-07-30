@@ -22,9 +22,15 @@ export default class OfferItem extends React.Component {
   }
 
   render() {
+    let soldOut;
+    if(this.props.offer.totalAvail - this.props.offer.claimed <= 0) {
+      soldOut = true;
+    } else {
+      soldOut = false;
+    }
     return (
       <div style={offerStyle} onClick={this.props.onClick}>
-        <ItemLeft selected={this.props.selected} offerId={this.props.offer.id}/>
+        <ItemLeft selected={this.props.selected} offerId={this.props.offer.id} soldOut={soldOut}/>
         <ItemMid name={this.props.offer.offerName} claimed={this.props.offer.claimed}/>
         <ItemRight origPrice={this.props.offer.originalPrice} discPrice={this.props.offer.discountedPrice}/>
       </div>
