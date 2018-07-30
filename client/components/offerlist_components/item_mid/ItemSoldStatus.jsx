@@ -1,7 +1,7 @@
 import React from 'react';
 
 let soldStyle = {
-
+  color: '#999'
 }
 
 export default class ItemSoldStatus extends React.Component {

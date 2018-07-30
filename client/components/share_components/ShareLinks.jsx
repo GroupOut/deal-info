@@ -1,8 +1,7 @@
 import React from 'react';
 
-let offerStyle = {
-  'display': 'flex',
-  'justifyContent':'space-between'
+let shareStyle = {
+  color: '#cfcfcf'
 }
 
 export default class ShareLinks extends React.Component {
@@ -18,7 +17,7 @@ export default class ShareLinks extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={shareStyle}>
         Share this deal
       </div>
     );
