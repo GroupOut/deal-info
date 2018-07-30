@@ -1,5 +1,15 @@
 import React from 'react';
 
+let buyStyle = {
+  margin: '2%',
+  padding: '6px',
+  textAlign: 'center',
+  backgroundColor: '#53a318',
+  borderRadius: '2px',
+  color: '#fff',
+  cursor:'pointer'
+}
+
 export default class BuyButton extends React.Component {
   constructor(props) {
     super(props);
@@ -12,8 +22,8 @@ export default class BuyButton extends React.Component {
 
   render() {
     return (
-      <div onClick={this.props.onClick}>
-        Herro I am BuyButton
+      <div onClick={this.props.onClick} style={buyStyle}>
+        Buy
       </div>
     );
   }

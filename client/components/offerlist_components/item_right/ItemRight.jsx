@@ -3,7 +3,8 @@ import ItemPrices from './ItemPrices.jsx';
 import ItemSavings from './ItemSavings.jsx';
 
 let rightStyle = {
-  alignSelf: 'flex-end'
+  alignSelf: 'flex-end',
+  alignContent: 'right'
 }
 
 export default class ItemRight extends React.Component {
