@@ -19,7 +19,7 @@ export default class ShareLinks extends React.Component {
   render() {
     return (
       <div>
-        ShareThusDEEL
+        Share this deal
       </div>
     );
   }

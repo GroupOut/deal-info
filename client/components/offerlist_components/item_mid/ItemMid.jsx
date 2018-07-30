@@ -5,7 +5,8 @@ import ItemSoldStatus from './ItemSoldStatus.jsx';
 let midStyle = {
   width:'60%',
   display:'flex',
-  flexDirection:'column'
+  flexDirection:'column',
+  flex: '1 1 auto'
 }
 
 export default class ItemMid extends React.Component {

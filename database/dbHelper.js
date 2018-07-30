@@ -6,19 +6,50 @@ var dbConnect = mysql.createConnection({
   database: 'nky_deal_info'
 })
 
-var queryDB = function(cbFunc) {
-  dbConnect.query('SELECT * FROM deal_offers WHERE deal_status_id = 1;', (err, res) => {
+var queryDBbyIdFull = function(targetId, cbFunc) {
+
+  let fullDeal = {};
+
+  let sendResp = function(allData) {
+    cbFunc(allData);
+  };
+
+  dbConnect.query(`Select * FROM deal_status WHERE id = ${targetId}`, (err, res) => {
+    if(err) {
+      throw err;
+    } else {
+      fullDeal.dealStatus = res[0];
+      if(fullDeal.dealOffers !== void(0)){
+        sendResp(fullDeal);
+      }
+    }
+  });
+
+  dbConnect.query(`SELECT * FROM deal_offers WHERE deal_status_id = ${targetId};`, (err, res) => {
     if (err) {
       throw err;
     } else {
-      cbFunc(res);
-      return res;
+      fullDeal.dealOffers = res;
+      if(fullDeal.dealStatus !== void(0)){
+        sendResp(fullDeal);
+      }
     }
   });
 }
 
+var logReservation = function(offerId, type) {
+  console.log(offerId, type)
+  dbConnect.query(`UPDATE deal_offers SET claimed = claimed + 1  WHERE deal_status_id=${offerId}`, (err, res) => {
+    if(err){
+      throw err;
+    } else {
+      console.log('SUCCESS!!!!! ' + res)
+      console.log(res)
+    }
+  })
+}
 
-queryDB((thing)=>{console.log(thing);});
+module.exports = {queryDB:queryDBbyIdFull, logReservation:logReservation}
 
 // var mysql = require('mysql');
 
