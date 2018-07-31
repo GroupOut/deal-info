@@ -22,7 +22,10 @@ export default class ItemLeft extends React.Component {
 
   render() {
     let leftPlaceholder = '';
-    if(this.props.offerId === this.props.selected){
+
+    if (this.props.soldOut) {
+      leftPlaceholder = <i className="far fa-frown"></i>;
+    } else if (this.props.offerId === this.props.selected) {
       leftPlaceholder = <i className="fas fa-check-circle" style={checkStyle}></i>
     } else {
       leftPlaceholder = <i className="far fa-circle"></i>;

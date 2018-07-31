@@ -39,7 +39,7 @@ var queryDBbyIdFull = function(targetId, cbFunc) {
 
 var logReservation = function(offerId, type) {
   console.log(offerId, type)
-  dbConnect.query(`UPDATE deal_offers SET claimed = claimed + 1  WHERE deal_status_id=${offerId}`, (err, res) => {
+  dbConnect.query(`UPDATE deal_offers SET claimed = claimed + 1  WHERE id=${offerId}`, (err, res) => {
     if(err){
       throw err;
     } else {

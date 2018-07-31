@@ -119,24 +119,28 @@ export default class Main extends React.Component {
   }
 
   handleReserveClick(type) {
-    if(Date.parse(new Date()) < Date.parse(this.state.dealStatus.expiration)) {
-      alert(`deal seems valid for offerId:${this.state.selectedOffer} assume put request is programmed to db and user purchased for ${type}`)
+    if(this.state.selectedOffer !== 0) {
+      if(Date.parse(new Date()) < Date.parse(this.state.dealStatus.expiration)) {
+        alert(`deal seems valid for offerId:${this.state.selectedOffer} assume put request is programmed to db and user purchased for ${type}`)
 
-      let idParam = window.location.pathname.split('/')[1];
-      $.ajax({
-        url: `http://localhost:3001/deal_status/${idParam}/offers/${this.state.selectedOffer}`,
-        method: 'PUT',
-        data: {purchType:type},
-        success: function(data) {
-          console.log('WIN ' + data)
-          // let parsedData = JSON.parse(data);
-          // console.log(parsedData)
-        },
-        error: function(err){
-          console.log(err)
-        }
-      })
+        let idParam = window.location.pathname.split('/')[1];
+        $.ajax({
+          url: `http://localhost:3001/deal_status/${idParam}/offers/${this.state.selectedOffer}`,
+          method: 'PUT',
+          data: {purchType:type},
+          success: function(data) {
+            console.log('WIN ' + data)
+            // let parsedData = JSON.parse(data);
+            // console.log(parsedData)
+          },
+          error: function(err) {
+            console.log(err)
+          }
+        })
 
+      }
+    } else {
+      alert(`Sorry, this deal is sold out, please check back later`)
     }
   }
 
