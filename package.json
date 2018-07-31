@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack  --watch",
-    "test": "jest --coverage --watch"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
