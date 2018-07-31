@@ -39,7 +39,7 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./tests/setupEnzyme.js",
-    "bail": "true",
+    "bail": true,
     "collectCoverageFrom": [
     "**/*.{js,jsx}",
     "!**/node_modules/**",
