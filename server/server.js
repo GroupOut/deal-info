@@ -5,12 +5,23 @@ const port = process.env.PORT || 3001;
 
 let dbHelper = require('../database/dbHelper.js');
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/:id', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/index.html'))
+app.use('/:id/', express.static(path.join(__dirname, '../public/index.html')));
+
+app.get('/app.js', function(req, res) { //for proxy
+  res.sendFile(path.join(__dirname, '../public/app.js'));
 });
+
+// app.get('/:id', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../public/index.html'));
+// });
 
 app.get('/deal_status/:deal_id', function(req, res) {
 

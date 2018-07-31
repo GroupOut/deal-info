@@ -27,7 +27,7 @@ export default class Main extends React.Component {
     //db query & cb
 
     let context = this;
-    let idParam = window.location.pathname.split('/')[1];
+    let idParam = window.location.pathname.split('/')[2];
     console.log(idParam)
     if(idParam !== '') {
       $.ajax({
