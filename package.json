@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack  --watch",
-    "test": "jest"
+    "test": "jest --coverage --watch"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -18,6 +18,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "mysql": "^2.16.0",
@@ -34,5 +36,16 @@
     "jest": "^23.4.1",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./tests/setupEnzyme.js",
+    "bail": "true",
+    "collectCoverageFrom": [
+    "**/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/vendor/**",
+    "!package.json"
+  ],
+    "testPathIgnorePatterns": ["<rootDir>/public/", "<rootDir>/node_modules/", "<rootDir>/example/", "<rootDir>/server/", "<rootDir>/database/", "<rootDir>/coverage/", "<rootDir>/.circleci/", "<rootDir>/.babelrc", "<rootDir>/.eslintrc", "<rootDir>/.gitignore", "<rootDir>/.nvmrc", "<rootDir>/package-lock.json", "<rootDir>/package.json", "<rootDir>/README.md", "<rootDir>/schema.sql", "<rootDir>/STYLE-GUIDE.md", "<rootDir>/webpack.config.js"]
   }
 }
