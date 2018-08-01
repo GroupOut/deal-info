@@ -8,7 +8,10 @@ import ShareLinks from './share_components/ShareLinks.jsx';
 const mainStyle = {
   borderStyle : 'solid',
   borderWidth : '1px',
-  width : '400px'
+  width : '400px',
+  position: '-webkit-sticky',
+  position: 'sticky',
+  top: '0'
 };
 
 
