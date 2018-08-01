@@ -27,46 +27,63 @@ export default class Main extends React.Component {
     //db query & cb
 
     let context = this;
-    let idParam = window.location.pathname.split('/')[2];
+    let locSplit = window.location.pathname.split('/');
+    let idParam;
+    for(let i = 0; i < locSplit.length; i++) {
+      if(locSplit[i] === 'deals'){
+        idParam = parseInt(locSplit[i+1])
+      }
+    }
+
+    if(typeof idParam === 'number'){
+      if(idParam > 0 && idParam < 101){
+        $.ajax({
+          url: 'http://localhost:3001/deal_status/'+idParam,
+          method: 'GET',
+          success: function(data) {
+            console.log(data)
+            let parsedData = JSON.parse(data);
+            console.log(parsedData)
+            let reactifyNames = {
+              dealStatus : {
+                id : parsedData.dealStatus.id,
+                name : parsedData.dealStatus.name,
+                expiration : parsedData.dealStatus.expiration,
+                views : parsedData.dealStatus.views,
+                rating : parsedData.dealStatus.rating,
+                reviewCount : parsedData.dealStatus.review_count
+              },
+              dealOffers:[]
+            }
+            for (let i = 0; i < parsedData.dealOffers.length; i++) {
+              let entry = {};
+              entry.id = parsedData.dealOffers[i].id;
+              entry.name = parsedData.dealOffers[i].name;
+              entry.claimed = parsedData.dealOffers[i].claimed;
+              entry.dealStatusId = parsedData.dealOffers[i].deal_status_id;
+              entry.discountedPrice = parsedData.dealOffers[i].discounted_price;
+              entry.originalPrice = parsedData.dealOffers[i].original_price;
+              entry.offerName = parsedData.dealOffers[i].offer_name;
+              entry.totalAvail = parsedData.dealOffers[i].total_avail;
+              reactifyNames.dealOffers.push(entry);
+            }
+
+            context.dbQueryCb(reactifyNames);
+          },
+          error: function(err) {
+            console.log(err);
+          }
+        });
+      } else {
+        console.log('Error: invalid ID: ' + idParam + '. Please use an ID between 1 and 100 in url. Ex: "localhost:8080/deals/<<ID>>"')
+      }
+    } else {
+      console.log('Error: invalid URL: ' + window.location.href + '. Please redirect to "localhost:8080/deals/1"')
+    }
+
     console.log(idParam)
     if(idParam !== '') {
-      $.ajax({
-        url: 'http://localhost:3001/deal_status/'+idParam,
-        method: 'GET',
-        success: function(data) {
-          console.log(data)
-          let parsedData = JSON.parse(data);
-          console.log(parsedData)
-          let reactifyNames = {
-            dealStatus : {
-              id : parsedData.dealStatus.id,
-              name : parsedData.dealStatus.name,
-              expiration : parsedData.dealStatus.expiration,
-              views : parsedData.dealStatus.views,
-              rating : parsedData.dealStatus.rating,
-              reviewCount : parsedData.dealStatus.review_count
-            },
-            dealOffers:[]
-          }
-          for(let i = 0; i < parsedData.dealOffers.length; i++) {
-            let entry = {};
-            entry.id = parsedData.dealOffers[i].id;
-            entry.name = parsedData.dealOffers[i].name;
-            entry.claimed = parsedData.dealOffers[i].claimed;
-            entry.dealStatusId = parsedData.dealOffers[i].deal_status_id;
-            entry.discountedPrice = parsedData.dealOffers[i].discounted_price;
-            entry.originalPrice = parsedData.dealOffers[i].original_price;
-            entry.offerName = parsedData.dealOffers[i].offer_name;
-            entry.totalAvail = parsedData.dealOffers[i].total_avail;
-            reactifyNames.dealOffers.push(entry);
-          }
 
-          context.dbQueryCb(reactifyNames);
-        },
-        error: function(err){
-          console.log(err)
-        }
-      })
     } else {
       console.log('window location went wrong')
     }
