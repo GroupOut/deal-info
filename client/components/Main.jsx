@@ -4,6 +4,8 @@ import Spotlight from './spotlight_components/Spotlight.jsx';
 import Offerlist from './offerlist_components/Offerlist.jsx';
 import Reserve from './reserve_components/Reserve.jsx';
 import ShareLinks from './share_components/ShareLinks.jsx';
+import TitleHeader from './title_component/TitleHeader.jsx';
+
 
 const mainStyle = {
   width : '400px',
@@ -44,9 +46,9 @@ export default class Main extends React.Component {
           url: 'http://localhost:3001/deal_status/'+idParam,
           method: 'GET',
           success: function(data) {
-            console.log(data)
+            // console.log(data)
             let parsedData = JSON.parse(data);
-            console.log(parsedData)
+            // console.log(parsedData)
             let reactifyNames = {
               dealStatus : {
                 id : parsedData.dealStatus.id,
@@ -97,7 +99,10 @@ export default class Main extends React.Component {
   dbQueryCb(data){
 
     if (data) {
-      this.setState(data)
+      this.setState(data);
+      if(document.getElementById('titleComponent') !== null){
+        ReactDOM.render(React.createElement(TitleHeader, data), document.getElementById('titleComponent'));
+      }
     } else {
       console.log('Error data not found, inserting placeholder data');
       this.setState({ //PLACEHOLDER
@@ -149,7 +154,7 @@ export default class Main extends React.Component {
           method: 'PUT',
           data: {purchType:type},
           success: function(data) {
-            console.log('WIN ' + data)
+            console.log('Purchase processed for ' + data)
             // let parsedData = JSON.parse(data);
             // console.log(parsedData)
           },
@@ -158,9 +163,11 @@ export default class Main extends React.Component {
           }
         })
 
+      } else {
+        alert(`Sorry, this deal has expired. Please check back later.`)
       }
     } else {
-      alert(`Sorry, this deal is sold out, please check back later`)
+      alert(`Sorry, this deal is sold out. Please check back later.`)
     }
   }
 
