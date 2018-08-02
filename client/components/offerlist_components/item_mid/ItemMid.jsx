@@ -23,8 +23,8 @@ export default class ItemMid extends React.Component {
   render() {
     return (
       <div style={midStyle}>
-        <ItemNameComp name={this.props.name}/>
-        <ItemSoldStatus sold={this.props.claimed}/>
+        <ItemNameComp name={this.props.name} soldOut={this.props.soldOut}/>
+        <ItemSoldStatus sold={this.props.claimed} soldOut={this.props.soldOut}/>
       </div>
     );
   }

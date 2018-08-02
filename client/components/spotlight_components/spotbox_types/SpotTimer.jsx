@@ -9,7 +9,8 @@ let timerStyle = {
   textAlign: 'center',
   padding: '10px',
   fontSize: "14px",
-  fontWeight: "400"
+  fontWeight: "400",
+  color: '#000000'
 
 };
 
@@ -24,8 +25,9 @@ export default class SpotTimer extends React.Component {
         seconds: timeRemCalc
       };
     } else {
+      timerStyle.color = '#ff6400';
       this.state = {
-        time: this.secondsToTime(0),
+        time: 'expired',
         seconds: 0
       };
     }
@@ -52,14 +54,14 @@ export default class SpotTimer extends React.Component {
   }
 
   countDown() {
-    let seconds = this.state.seconds - 1;
-    this.setState({
-      time: this.secondsToTime(seconds),
-      seconds: seconds
-    });
-
-    if (seconds === 0) {
+    if (this.state.seconds <= 0) {
       clearInterval(this.timer);
+    } else {
+      let seconds = this.state.seconds - 1;
+      this.setState({
+        time: this.secondsToTime(seconds),
+        seconds: seconds
+      });
     }
   }
 
@@ -88,7 +90,9 @@ export default class SpotTimer extends React.Component {
 
   render() {
     let timerText;
-    if(this.state.time.d > 14) {
+    if (this.state.time === 'expired') {
+      timerText = ' Deal Expired';
+    } else if(this.state.time.d > 14) {
       timerText = ' Limited Time Remaining'
     } else {
       timerText = `Time left: ${this.state.time.d}d ${this.state.time.h}h ${this.state.time.m}m ${this.state.time.s}s`
