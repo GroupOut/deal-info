@@ -15,6 +15,10 @@ let buyStyle = {
 export default class BuyButton extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
+    if(this.props.expired) {
+      buyStyle.backgroundColor = '#ff6400';
+    }
   }
 
   componentDidMount() {
@@ -23,9 +27,15 @@ export default class BuyButton extends React.Component {
 
 
   render() {
+    let buyText;
+    if(this.props.expired) {
+      buyText = 'Deal Expired :(';
+    } else {
+      buyText = 'Buy';
+    }
     return (
       <div onClick={this.props.onClick} style={buyStyle}>
-        Buy
+        {buyText}
       </div>
     );
   }

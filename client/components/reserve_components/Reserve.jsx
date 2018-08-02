@@ -9,6 +9,7 @@ let reserveStyle = {
 export default class Reserve extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
   }
 
   componentDidMount() {
@@ -19,7 +20,7 @@ export default class Reserve extends React.Component {
   render() {
     return (
       <div style={reserveStyle}>
-        <BuyButton onClick={this.props.reservationCb.bind(null, 'self')}/>
+        <BuyButton onClick={this.props.reservationCb.bind(null, 'self')} expired={this.props.expired}/>
         <GiftButton onClick={this.props.reservationCb.bind(null, 'gift')}/>
       </div>
     );

@@ -177,7 +177,7 @@ export default class Main extends React.Component {
         <div style={mainStyle}>
           <Spotlight deal={this.state.dealStatus} offers={this.state.dealOffers}/>
           <Offerlist offers={this.state.dealOffers} selectionCb={this.newOfferSelection.bind(this)}/>
-          <Reserve reservationCb={this.handleReserveClick.bind(this)}/>
+          <Reserve reservationCb={this.handleReserveClick.bind(this)} expired={(Date.parse(new Date()) > Date.parse(this.state.dealStatus.expiration))}/>
           <ShareLinks/>
         </div>
       );
