@@ -6,7 +6,8 @@ import SpotTimer from './spotbox_types/SpotTimer.jsx';
 
 let spotStyle = {
   'display': 'flex',
-  'justifyContent':'space-between'
+  'justifyContent':'space-between',
+  'borderBottom': '1px solid #efefef'
 };
 
 export default class Spotlight extends React.Component {

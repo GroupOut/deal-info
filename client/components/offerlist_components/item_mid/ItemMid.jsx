@@ -6,7 +6,9 @@ let midStyle = {
   width:'60%',
   display:'flex',
   flexDirection:'column',
-  flex: '1 1 auto'
+  flex: '1 1 auto',
+  fontSize: "14px",
+  fontWeight: "400"
 }
 
 export default class ItemMid extends React.Component {

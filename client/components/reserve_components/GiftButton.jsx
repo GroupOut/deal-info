@@ -6,7 +6,9 @@ let giftStyle = {
   textAlign: 'center',
   borderRadius: '2px',
   border: '1px solid #777',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  fontSize: "16px",
+  fontWeight: "500"
 }
 
 export default class GiftButton extends React.Component {

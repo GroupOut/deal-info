@@ -7,7 +7,9 @@ let buyStyle = {
   backgroundColor: '#53a318',
   borderRadius: '2px',
   color: '#fff',
-  cursor:'pointer'
+  cursor:'pointer',
+  fontSize: "16px",
+  fontWeight: "200"
 }
 
 export default class BuyButton extends React.Component {

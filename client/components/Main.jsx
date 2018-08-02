@@ -6,12 +6,11 @@ import Reserve from './reserve_components/Reserve.jsx';
 import ShareLinks from './share_components/ShareLinks.jsx';
 
 const mainStyle = {
-  borderStyle : 'solid',
-  borderWidth : '1px',
   width : '400px',
   position: '-webkit-sticky',
   position: 'sticky',
-  top: '10px'
+  top: '10px',
+  fontFamily: "OpenSans, “Helvetica Neue”, Helvetica, Tahoma, Arial, FreeSans, sans-serif"
 };
 
 

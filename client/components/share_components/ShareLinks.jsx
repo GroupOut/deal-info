@@ -1,7 +1,8 @@
 import React from 'react';
 
 let shareStyle = {
-  color: '#cfcfcf'
+  color: '#cfcfcf',
+  padding: "5px"
 }
 
 export default class ShareLinks extends React.Component {
