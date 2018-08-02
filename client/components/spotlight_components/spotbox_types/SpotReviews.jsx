@@ -7,7 +7,9 @@ let reviewsStyle = {
   borderWidth: '1px',
   margin:'0 1% 0 0',
   textAlign: 'center',
-  padding: '4px'
+  padding: '10px',
+  fontSize: "14px",
+  fontWeight: "400"
 
 };
 

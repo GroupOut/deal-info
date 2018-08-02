@@ -5,11 +5,17 @@ let pricesStyle = {
 }
 
 let origPriceStyle = {
-  textDecoration: 'line-through'
+  textDecoration: 'line-through',
+  fontFamily: "OpenSans, “Helvetica Neue”, Helvetica, Tahoma, Arial, FreeSans, sans-serif",
+  fontSize: "16px",
+  fontWeight: "600"
 }
 
 let discPriceStyle = {
-  color: '#53a318'
+  color: '#53a318',
+  fontFamily: "OpenSans, “Helvetica Neue”, Helvetica, Tahoma, Arial, FreeSans, sans-serif",
+  fontSize: "14px",
+  fontWeight: "500"
 }
 
 export default class ItemPrices extends React.Component {
