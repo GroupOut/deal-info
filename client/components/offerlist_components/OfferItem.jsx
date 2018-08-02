@@ -31,7 +31,7 @@ export default class OfferItem extends React.Component {
     return (
       <div style={offerStyle} onClick={this.props.onClick}>
         <ItemLeft selected={this.props.selected} offerId={this.props.offer.id} soldOut={soldOut}/>
-        <ItemMid name={this.props.offer.offerName} claimed={this.props.offer.claimed}/>
+        <ItemMid name={this.props.offer.offerName} claimed={this.props.offer.claimed} soldOut={soldOut}/>
         <ItemRight origPrice={this.props.offer.originalPrice} discPrice={this.props.offer.discountedPrice}/>
       </div>
     );
