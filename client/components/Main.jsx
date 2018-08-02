@@ -10,6 +10,7 @@ const mainStyle = {
   position: '-webkit-sticky',
   position: 'sticky',
   top: '10px',
+  padding: '30px 10px 10px 15px',
   fontFamily: "OpenSans, “Helvetica Neue”, Helvetica, Tahoma, Arial, FreeSans, sans-serif"
 };
 
