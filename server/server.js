@@ -13,7 +13,7 @@ app.use(function(req, res, next) {
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/:id/', express.static(path.join(__dirname, '../public/index.html')));
+app.use('/deals/:id/', express.static(path.join(__dirname, '../public')));
 
 app.get('/app.js', function(req, res) { //for proxy
   res.sendFile(path.join(__dirname, '../public/app.js'));
