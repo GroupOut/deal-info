@@ -77,6 +77,7 @@ export default class Main extends React.Component {
           },
           error: function(err) {
             console.log(err);
+            context.dbQueryCb(false);
           }
         });
       } else {
@@ -104,7 +105,7 @@ export default class Main extends React.Component {
         ReactDOM.render(React.createElement(TitleHeader, data), document.getElementById('titleComponent'));
       }
     } else {
-      console.log('Error data not found, inserting placeholder data');
+      console.log('Error data not found check DB and try again, inserting placeholder data');
       this.setState({ //PLACEHOLDER
       dealStatus : {
         id : 1,

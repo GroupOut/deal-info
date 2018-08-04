@@ -25,7 +25,7 @@ build/
 dist/
 
 example/
-public/app.js
+
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
