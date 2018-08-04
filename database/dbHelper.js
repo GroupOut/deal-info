@@ -25,7 +25,7 @@ var queryDBbyIdFull = function(targetId, cbFunc) {
         } else {
           console.log(`Target id: ${targetId}. Views++`);
         }
-      }
+      });
       fullDeal.dealStatus = res[0];
       if(fullDeal.dealOffers !== void(0)){
         sendResp(fullDeal);
