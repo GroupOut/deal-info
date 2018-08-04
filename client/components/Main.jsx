@@ -41,9 +41,10 @@ export default class Main extends React.Component {
     }
 
     if(typeof idParam === 'number'){
+
       if(idParam > 0 && idParam < 101){
         $.ajax({
-          url: 'http://localhost:3001/deal_status/'+idParam,
+          url: '/deal_status/'+idParam,
           method: 'GET',
           success: function(data) {
             // console.log(data)
