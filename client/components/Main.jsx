@@ -44,7 +44,7 @@ export default class Main extends React.Component {
 
       if(idParam > 0 && idParam < 101){
         $.ajax({
-          url: '/deal_status/'+idParam,
+          url: process.env.HOST_URL + '/deal_status/' + idParam,
           method: 'GET',
           success: function(data) {
             // console.log(data)

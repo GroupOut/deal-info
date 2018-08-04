@@ -19,6 +19,13 @@ var queryDBbyIdFull = function(targetId, cbFunc) {
     if(err) {
       throw err;
     } else {
+      dbConnect.query(`UPDATE deal_status SET views = views + 1  WHERE id=${targetId}`, (err, res) => {
+        if(err) {
+          throw err;
+        } else {
+          console.log(`Target id: ${targetId}. Views++`);
+        }
+      }
       fullDeal.dealStatus = res[0];
       if(fullDeal.dealOffers !== void(0)){
         sendResp(fullDeal);
