@@ -44,7 +44,7 @@ export default class Main extends React.Component {
 
       if(idParam > 0 && idParam < 101){
         $.ajax({
-          url: '/deal_status/' + idParam,
+          url: 'groupOut-deal-info-dev2.us-west-1.elasticbeanstalk.com/deal_status/' + idParam,
           method: 'GET',
           success: function(data) {
             // console.log(data)
