@@ -9,7 +9,6 @@ var dbConnect = mysql.createConnection({
 })
 
 var queryDBbyIdFull = function(targetId, cbFunc) {
-
   let fullDeal = {};
 
   let sendResp = function(allData) {
