@@ -1,11 +1,11 @@
 var mysql = require('mysql');
 
 var dbConnect = mysql.createConnection({
-  host: 'process.env.RDS_HOSTNAME',
-  user: 'process.env.RDS_USERNAME',
+  host: process.env.RDS_HOSTNAME,
+  user: process.env.RDS_USERNAME,
   database: 'nky_deal_info',
-  password: 'process.env.RDS_PASSWORD',
-  port: 'process.env.RDS_PORT'
+  password: process.env.RDS_PASSWORD,
+  port: process.env.RDS_PORT
 })
 
 var queryDBbyIdFull = function(targetId, cbFunc) {
